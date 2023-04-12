@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+.sp-thongbao {
+  display: none;
+}
+
+.sp-thongbao-hide {
+  color: red;
+  margin-left: 2px;
+  display: inline-block;
+  margin-left: 3px;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 #header {
   background-color: #000;
   width: 100%;
