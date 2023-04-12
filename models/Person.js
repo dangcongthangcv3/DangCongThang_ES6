@@ -9,12 +9,12 @@ export class Person{
 export class Student extends Person{
     constructor(ma, hoTen, diaChi, email, toan, ly, hoa){
         super(ma, hoTen, diaChi, email);
-        this.toan = toan;
-        this.ly = ly;
-        this.hoa = hoa;
+        this.toan = +toan;
+        this.ly = +ly;
+        this.hoa = +hoa;
     }
-    diemTrungBinh(){
-        let diemTrungBinh = (this.toan + this.ly + this.hoa)/3
+    tinhDiemTrungBinh(){
+        let diemTrungBinh = (+this.toan + +this.ly + +this.hoa)/3
         return diemTrungBinh.toFixed(1)
     }
     loaiDoiTuong(){

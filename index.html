@@ -26,7 +26,7 @@
       referrerpolicy="no-referrer"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/index.min.css" />
+    <link rel="stylesheet" href="./css/index.min.css" />
   </head>
   <body>
     <header id="header">
@@ -75,19 +75,11 @@
               <th>Họ tên</th>
               <th>Địa chỉ</th>
               <th>Email</th>
-              <th></th>
-              <th></th>
+              <th>.</th>
+              <th>.</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>sv1</td>
-              <td>Nguyen Van A</td>
-              <td>29 Ha huy giap, TL 37, Quan 12 , HCM</td>
-              <td>nguyenvana@gmail.com</td>
-              <td><button id="update" class="btn btn-primary">Cập nhật</button></td>
-              <td><button id="delete" class="btn btn-danger">Xóa</button></td>
-            </tr>
+          <tbody id="danhSach">
           </tbody>
         </table>
       </div>
@@ -108,7 +100,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-id-card"></i></span>
                   </div>
-                  <input type="text" name="ma" id="maSV" class="form-control input-sm" placeholder="Mã" />
+                  <input type="text" name="ma" id="maSV" class="form-control input-sm" value="1234" placeholder="Mã" />
                 </div>
 
                 <span class="sp-thongbao" id="tbMaSV"></span>
@@ -119,7 +111,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-address-book"></i></span>
                   </div>
-                  <input type="text" name="hoTen" id="hoTenSV" class="form-control input-sm" placeholder="Họ và tên" />
+                  <input type="text" name="hoTen" id="hoTenSV" class="form-control input-sm" value="Nguyen" placeholder="Họ và tên" />
                 </div>
                 <span class="sp-thongbao" id="tbHoTenSV"></span>
               </div>
@@ -129,7 +121,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
                   </div>
-                  <input type="text" name="diaChi" id="diaChi" class="form-control input-sm" placeholder="Địa chỉ" />
+                  <input type="text" name="diaChi" id="diaChi" class="form-control input-sm" value="dadad" placeholder="Địa chỉ" />
                 </div>
                 <span class="sp-thongbao" id="tbDiaChi"></span>
               </div>
@@ -139,7 +131,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                   </div>
-                  <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email" />
+                  <input type="email" name="email" id="email" class="form-control input-sm" value="a@gmail.com" placeholder="Email" />
                 </div>
 
                 <span class="sp-thongbao" id="tbEmail"></span>
@@ -150,7 +142,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-calculator" aria-hidden="true"></i></span>
                   </div>
-                  <input type="number" name="toan" id="diemToan" class="form-control input-sm" placeholder="Toán" />
+                  <input type="number" name="toan" id="diemToan" class="form-control input-sm" value="10" placeholder="Toán" />
                 </div>
                 <span class="sp-thongbao" id="tbToan"></span>
               </div>
@@ -160,7 +152,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-cogs" aria-hidden="true"></i></span>
                   </div>
-                  <input type="number" name="ly" id="diemLy" class="form-control input-sm" placeholder="Lý" />
+                  <input type="number" name="ly" id="diemLy" class="form-control input-sm" value="10" placeholder="Lý" />
                 </div>
                 <span class="sp-thongbao" id="tbLy"></span>
               </div>
@@ -170,7 +162,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-flask" aria-hidden="true"></i></span>
                   </div>
-                  <input type="number" name="hoa" id="diemHoa" class="form-control input-sm" placeholder="Hóa" />
+                  <input type="number" name="hoa" id="diemHoa" class="form-control input-sm" value="10" placeholder="Hóa" />
                 </div>
                 <span class="sp-thongbao" id="tbHoa"></span>
               </div>

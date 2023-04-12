@@ -1,6 +1,23 @@
 import Validation from '../util/Validation.js'
 import {Customer,Employee, Student} from '../models/Person.js'
 // import Person from '../../models/Person.js'
+let arrSV = []
+
+window.update =(ma)=>{
+  for(let i =0; i<arrSV.length;i++){
+    if(arrSV[i].ma ===ma){
+        document.getElementById("maSV").value = arrSV[i].ma;
+        document.getElementById("hoTenSV").value = arrSV[i].hoTen;
+        document.getElementById("diaChi").value = arrSV[i].diaChi;
+        document.getElementById("email").value = arrSV[i].email;
+        document.getElementById("diemToan").value = arrSV[i].toan;
+        document.getElementById("diemLy").value = arrSV[i].ly;
+        document.getElementById("diemHoa").value = arrSV[i].hoa;
+        break;
+    }
+  }
+  document.getElementById("btnThemSV").click();
+}
 document.getElementById('btnThemSV').onclick = () =>{
     let sv = new Student()
     sv.ma = document.getElementById('maSV').value;
@@ -92,6 +109,10 @@ if(loiMaSV!=0 || loiHoTen!=0 || loiDiaChi!=0 || loiEmail!=0 || loiToan!=0|| loiL
   
   return
 }
+themNguoi(sv)
+console.log(arrSV)
+
+renderSinhVien(arrSV)
 }
 
 //Hàm xét nếu có lổi thì hiện class='sp-thongbao-hide'
@@ -106,4 +127,65 @@ const showHideClass = (loi, idTB)=>{
         if(document.querySelector(idTB).className = 'sp-thongbao-hide'){
         document.querySelector(idTB).className = 'sp-thongbao'
     }}
+}
+const themNguoi=(sv)=>{
+  arrSV.push(sv)
+  // console.log(arrSV)
+  // for(let i=0;i<arrSV.length;i++){
+  //   console.log(arrSV[i].tinhDiemTrungBinh)
+  // }
+}
+
+const renderSinhVien=(arrSV)=>{
+  let stringHTML = '';
+  let tdThem = ''
+  for(let i = 0;i<arrSV.length;i++){
+    if(arrSV[i].tinhDiemTrungBinh){
+      tdThem = `<td>Điểm trung bình : ${arrSV[i].tinhDiemTrungBinh()}</td>`
+    }
+    else if(arrSV.tinhLuong){
+      tdThem = `<td>Tiền lương : ${arrSV[i].tinhLuong()}</td>`;
+    }
+    stringHTML += `
+    <tr>
+        <td>${arrSV[i].ma}</td>
+        <td>${arrSV[i].hoTen}</td>
+        <td>${arrSV[i].diaChi}</td>
+        <td>${arrSV[i].email}</td>
+        ${tdThem}
+        <td>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModalNV"onclick="update('${arrSV[i].ma}')">
+                Sửa
+              </button>
+            <button class="btn btn-danger"  onclick="Delete('${arrSV[i].ma}')">Xóa</button>
+        </td>
+    </tr>
+    `;
+  }
+  document.getElementById("danhSach").innerHTML = stringHTML;
+  return stringHTML;
+};
+renderSinhVien(arrSV)
+
+window.Delete=(ma)=>{
+  let vTri = -1
+  for(let i = 0; i<arrSV.length;i++){
+    if(arrSV[i].ma ===ma){
+      vTri = i
+      break
+    }
+  }
+  arrSV.splice(vTri,1)
+  renderSinhVien(arrSV)
+}
+document.getElementById('maSV').oninput = ()=>{
+  for(let i =0 ;i<arrSV.length;i++){
+    if(document.getElementById('maSV').value==arrSV[i].ma){
+      document.getElementById('tbMaSV').innerHTML='Mã không nhập trùng';
+      showHideClass(1,'#tbMaSV')
+    }
+    else{
+      document.getElementById('tbMaSV').innerHTML='';
+    }
+  }
 }
