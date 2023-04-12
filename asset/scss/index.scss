@@ -1,15 +1,103 @@
+@import './varable.scss';
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 #header{
-    background-color: #111;
+    background-color: $text-c0-dark;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    .admin{
+    .text__admin{
         padding: 20px 19px 10px 12px;
+        margin-left: 10px;
+        font-size: 16px;
+        color: $text-c0-light;
+    }
+}
+#content{
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    .content__left{
+        padding: 15px 12px;
+        position: absolute;
+        width: 20%;
+        background-color: #484848;
+        .filter{
+            h5{
+                color: $text-c0-light;
+            }
+        }
+        .add{
+            padding: 25px 0;
+            h5{
+                color: $text-c0-light;
+            }
+            button{
+                margin-top: 5px;
+            }
+        }
+    }
+    .content__right{
+        margin-left: 20%;
+        width: 80%;
+    }
+}
+.modal{
+    .modal-dialog{
+        .modal-content{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: 0.3rem;
+            outline: 0;
+            .head-form {
+                margin: 2% auto 10% auto;
+                text-align: center;
+                h2{
+                    font-size: 250%;
+                    font-family: 'Playfair Display', serif;
+                    color: #3e403f;
+                }
+            }
+            .modal-body {
+                position: relative;
+                flex: 1 1 auto;
+                padding: var(--bs-modal-padding);
+                .form {
+                    width: 450px;
+                    height: auto;
+                    border-radius: 5px;
+                    margin: 2% auto;
+                    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+                    padding: 2%;
+                    background-image: linear-gradient(-225deg, #E3FDF5 50%, #FFE6FA 50%);
+                    .form-group {
+                        margin-bottom: 1rem;
+                        .input-group {
+                            position: relative;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -ms-flex-wrap: wrap;
+                            flex-wrap: wrap;
+                            -ms-flex-align: stretch;
+                            align-items: stretch;
+                            width: 100%;
+                            .input-group-prepend{
+                                display: flex;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
