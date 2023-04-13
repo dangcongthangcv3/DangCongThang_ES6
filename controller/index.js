@@ -3,21 +3,7 @@ import {Customer,Employee, Student} from '../models/Person.js'
 // import Person from '../../models/Person.js'
 let arrSV = []
 
-window.update =(ma)=>{
-  for(let i =0; i<arrSV.length;i++){
-    if(arrSV[i].ma ===ma){
-        document.getElementById("maSV").value = arrSV[i].ma;
-        document.getElementById("hoTenSV").value = arrSV[i].hoTen;
-        document.getElementById("diaChi").value = arrSV[i].diaChi;
-        document.getElementById("email").value = arrSV[i].email;
-        document.getElementById("diemToan").value = arrSV[i].toan;
-        document.getElementById("diemLy").value = arrSV[i].ly;
-        document.getElementById("diemHoa").value = arrSV[i].hoa;
-        break;
-    }
-  }
-  document.getElementById("btnThemSV").click();
-}
+
 document.getElementById('btnThemSV').onclick = () =>{
     let sv = new Student()
     sv.ma = document.getElementById('maSV').value;
@@ -188,4 +174,19 @@ document.getElementById('maSV').oninput = ()=>{
       document.getElementById('tbMaSV').innerHTML='';
     }
   }
+}
+window.update =(ma)=>{
+  for(let i =0; i<arrSV.length;i++){
+    if(arrSV[i].ma ===ma){
+        document.getElementById("maSV").value = arrSV[i].ma;
+        document.getElementById("hoTenSV").value = arrSV[i].hoTen;
+        document.getElementById("diaChi").value = arrSV[i].diaChi;
+        document.getElementById("email").value = arrSV[i].email;
+        document.getElementById("diemToan").value = arrSV[i].toan;
+        document.getElementById("diemLy").value = arrSV[i].ly;
+        document.getElementById("diemHoa").value = arrSV[i].hoa;
+        break;
+    }
+  }
+  // document.getElementById("btnThemSV").click();
 }
