@@ -1,6 +1,5 @@
 import Validation from '../util/Validation.js'
 import {Customer,Employee, Student} from '../models/Person.js'
-// import Person from '../../models/Person.js'
 let arrSV = []
 
 
@@ -140,7 +139,7 @@ const renderSinhVien=(arrSV)=>{
         <td>${arrSV[i].email}</td>
         ${tdThem}
         <td>
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModalNV"onclick="update('${arrSV[i].ma}')">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#myModalSV" onclick="hUpdate('${arrSV[i].ma}')">
                 Sửa
               </button>
             <button class="btn btn-danger"  onclick="Delete('${arrSV[i].ma}')">Xóa</button>
@@ -175,7 +174,7 @@ document.getElementById('maSV').oninput = ()=>{
     }
   }
 }
-window.update =(ma)=>{
+window.hUpdate =(ma)=>{
   for(let i =0; i<arrSV.length;i++){
     if(arrSV[i].ma ===ma){
         document.getElementById("maSV").value = arrSV[i].ma;
@@ -189,4 +188,33 @@ window.update =(ma)=>{
     }
   }
   // document.getElementById("btnThemSV").click();
+}
+
+document.getElementById('btnCapNhatSV').onclick = function(){
+  // debugger
+  let sv = new Student()
+    sv.ma = document.getElementById('maSV').value;
+    sv.hoTen = document.getElementById('hoTenSV').value;
+    sv.diaChi = document.getElementById('diaChi').value;
+    sv.email = document.getElementById('email').value;
+    sv.toan = document.getElementById('diemToan').value;
+    sv.ly = document.getElementById('diemLy').value;
+    sv.hoa = document.getElementById('diemHoa').value;
+
+    const tam=findID(sv.ma);
+  
+      const nvcu = tam;
+      Object.assign(nvcu,sv)
+  
+    
+
+console.log(arrSV)
+
+renderSinhVien(arrSV)
+}
+const findID= (ma)=>{
+  const sv = arrSV.find((sv)=>{
+    return sv.ma ===ma
+  })
+  return sv
 }
